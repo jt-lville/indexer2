@@ -30,8 +30,10 @@
 </p>
 
 <p>
-  <b>Weight:</b>
-  <%= @post.weight %>
+<b>Weight:</b>
+<% if @post.weight != nil %>
+	<%= @post.weight %> kg
+<% end %>
 </p>
 
 

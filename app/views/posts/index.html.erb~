@@ -1,7 +1,7 @@
 <h1>Posts</h1>
 
 <table>
- 
+  <tr>
     <th>Name</th>
     <th>Description</th>
     <th>Location</th>
@@ -13,14 +13,14 @@
     <th></th>
     <th></th>
     <th></th>
-
+  </tr>
 
 <% @posts.each do |post| %>
   <tr>
     <td><%= post.name %></td>
     <td><%= post.description %></td>
     <td><%= post.location %></td>
-    <td><%= post.cost %></td>
+    <td><% if post.cost != nil %>$<%end%><%= post.cost %></td>
     <td><%= post.size %></td>
     <td><%= post.weight %></td>
     <td><%= post.category %></td>
