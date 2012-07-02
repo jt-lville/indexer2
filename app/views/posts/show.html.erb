@@ -6,7 +6,7 @@
 </p>
 
 <p>
-  <b>Description:</b>
+<b>Description:</b>
   <%= @post.description %>
 </p>
 
@@ -16,8 +16,13 @@
 </p>
 
 <p>
-  <b>Cost:</b>
+<b>Cost:</b>
+  <%if @post.cost != nil%>
   $<%= @post.cost %>
+  <% else %>
+  unknown
+  <%end%>
+
 </p>
 
 <p>

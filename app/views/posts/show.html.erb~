@@ -6,8 +6,13 @@
 </p>
 
 <p>
-  <b>Description:</b>
+<b>Description:</b>
+  <% if @post.description.blank? %>
   <%= @post.description %>
+  <% else %>
+  no description
+  <% end %>
+
 </p>
 
 <p>
@@ -16,8 +21,13 @@
 </p>
 
 <p>
-  <b>Cost:</b>
-  <%= @post.cost %>
+<b>Cost:</b>
+  <%if @post.cost != nil%>
+  $<%= @post.cost %>
+  <% else %>
+  unknown
+  <%end%>
+
 </p>
 
 <p>

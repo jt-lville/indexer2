@@ -31,6 +31,10 @@
     <%= f.label :size %><br />
     <%= f.text_field :size, :placeholder => "Size in any unit, as a string." %>
   </div>
+    <div class="field">
+    <%= f.label :weight %><br />
+    <%= f.text_field :weight, :placeholder => "Weight in kilograms." %>
+  </div>
   <div class="field">
     <%= f.label :category %><br />
     <%= f.text_field :category, :placeholder => "e.g., 'Electronics'" %>
@@ -38,6 +42,10 @@
   <div class="field">
     <%= f.label :owner %><br />
     <%= f.text_field :owner %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url, :placeholder => "Optional image url." %>
   </div>
   <div class="actions">
     <%= f.submit %>

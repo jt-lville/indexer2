@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_area :description, :placeholder => "A brief description" %>
+    <%= f.text_area :description %>
   </div>
   <div class="field">
     <%= f.label :location %><br />
@@ -30,6 +30,10 @@
   <div class="field">
     <%= f.label :size %><br />
     <%= f.text_field :size, :placeholder => "Size in any unit, as a string." %>
+  </div>
+    <div class="field">
+    <%= f.label :weight %><br />
+    <%= f.text_field :weight, :placeholder => "Weight in kilograms." %>
   </div>
   <div class="field">
     <%= f.label :category %><br />
