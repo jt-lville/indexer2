@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<% if @post.url.length > 0 %>
+<p><img src = "<%=@post.url%>" width="150" height="150"></p>
+<% end %>
+
 <p>
   <b>Name:</b>
   <%= @post.name %>
@@ -24,6 +28,12 @@
   <%end%>
 
 </p>
+
+<p>
+  <b>Weight:</b>
+  <%= @post.weight %>
+</p>
+
 
 <p>
   <b>Size:</b>
