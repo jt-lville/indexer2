@@ -6,7 +6,9 @@ class CreatePosts < ActiveRecord::Migration
       t.text :description
       t.string :location
       t.decimal :cost
-      t.decimal :size
+      t.string :size
+      t.decimal :weight
+
       t.string :category #e.g. electronics, books, etc
       t.string :owner
       
