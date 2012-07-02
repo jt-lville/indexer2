@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyText
+  location: MyString
+  cost: 9.99
+  size: 9.99
+  category: MyString
+  owner: MyString
+
+two:
+  name: MyString
+  description: MyText
+  location: MyString
+  cost: 9.99
+  size: 9.99
+  category: MyString
+  owner: MyString
