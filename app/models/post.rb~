@@ -1,7 +1,5 @@
 class Post < ActiveRecord::Base
 
 	validates :name, :presence => true
-	validates :cost, :format => { :with => /\d*\.*\d/,
-    :message => "Numbers only, no dollar sign." }
 
 end
