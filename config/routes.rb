@@ -1,4 +1,6 @@
 Indexer2::Application.routes.draw do
+  devise_for :users
+
   resources :posts
 
   get "home/index"
