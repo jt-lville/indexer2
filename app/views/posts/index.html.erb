@@ -10,6 +10,7 @@
     <th>Weight</th>
     <th>Category</th>
     <th>Owner</th>
+    <th>Posted by</th>
     <th></th>
     <th></th>
     <th></th>
@@ -25,6 +26,7 @@
     <td><%= post.weight %><% if post.weight != nil %> kg<%end%></td>
     <td><%= post.category %></td>
     <td><%= post.owner %></td>
+    <td><%= link_to post.user.email, user_path(post.user) if post.user %><%= "Anonymous" unless post.user %></td>
     <td><%= link_to 'View', post %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
     <td><%= (link_to 'Delete', post, confirm: 'Are you sure you wish to delete this post?', method: :delete) if post.user == current_user or post.user_id == nil %></td>
@@ -34,6 +36,11 @@
 
 <br />
 
-<%= link_to 'Create new post', new_post_path %><br/>
-<%= link_to 'Log in', '/login' unless user_signed_in? %>
-<%= "Logged in as " if user_signed_in? %><%= link_to current_user.email, user_path(current_user)%> <i>(Click to view userpage)</i>
+<%= link_to 'Create new post', new_post_path %> | 
+<% if user_signed_in? %>
+
+<%= "Logged in as " %><%= link_to current_user.email, user_path(current_user) %> <i>(Click to view userpage)</i> | 
+<%= link_to 'Sign out', '/logout' %>
+<% else %>
+	<%= link_to 'Log in', '/login'%>
+<% end %>
