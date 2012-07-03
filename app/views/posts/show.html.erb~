@@ -33,7 +33,7 @@
 <b>Weight:</b>
 <% if @post.weight != nil %>
 	<%= @post.weight %> kg
-<% end>
+<% end %>
 </p>
 
 
@@ -52,6 +52,13 @@
   <%= @post.owner %>
 </p>
 
+<% if @post.user != nil %>
+  <p>
+  <b>User:</b>
+  <% u = @post.user %>
+  <%= link_to u.email, user_path(u) %>
+  </p>
+<% end %>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Edit', edit_post_path(@post) %><br/>
 <%= link_to 'Back', posts_path %>

@@ -1,3 +1,4 @@
+  <% @posts = current_user.posts if user_signed_in? %>
 <%= form_for(@post) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -37,7 +38,7 @@
   </div>
     <div class="field">
     <%= f.label :weight %><br />
-    <%= f.text_field :weight, :placeholder => "Weight in kilograms." %>
+    <%= f.text_field :weight, :placeholder => "Weight in kilograms" %>
   </div>
   <div class="field">
     <%= f.label :category %><br />
@@ -47,6 +48,7 @@
     <%= f.label :owner %><br />
     <%= f.text_field :owner %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

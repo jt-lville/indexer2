@@ -22,16 +22,18 @@
     <td><%= post.location %></td>
     <td><% if post.cost != nil %>$<%end%><%= post.cost %></td>
     <td><%= post.size %></td>
-    <td><%= post.weight %></td>
+    <td><%= post.weight %><% if post.weight != nil %> kg<%end%></td>
     <td><%= post.category %></td>
     <td><%= post.owner %></td>
     <td><%= link_to 'View', post %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Delete', post, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= (link_to 'Delete', post, confirm: 'Are you sure you wish to delete this post?', method: :delete) if post.user == current_user or post.user_id == nil %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'Create new post', new_post_path %>
+<%= link_to 'Create new post', new_post_path %><br/>
+<%= link_to 'Log in', '/login' unless user_signed_in? %>
+<%= "Logged in as " if user_signed_in? %><%= link_to current_user.email, user_path(current_user)%>

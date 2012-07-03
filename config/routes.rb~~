@@ -1,17 +1,8 @@
 Indexer2::Application.routes.draw do
   get "home/index"
 
-  resources :posts
-  resources :users
-
-  devise_for :users, :controllers => {:registrations => 'registrations', :invitations => 'invitations'}, :except => [:show] do
-    get '/logout' => 'devise/sessions#destroy', :as => 'user_logout'
-    get '/login' => "devise/sessions#new", :as => 'user_login'
-  end 
-
-  match '/welcome' => 'pages#welcome'
-
-   #devise_for :users, :controllers => { :sessions => "users/sessions" }
+  devise_for :users, :path => "usuarios", :path_names => { :sign_in => 'login', :sign_out => 'logout', :password => 'secret', :confirmation => 'verification', :unlock => 'unblock', :registration => 'register', :sign_up => 'cmon_let_me_in' }
+  #devise_for :users, :controllers => { :sessions => "users/sessions" }
 
   # Sample resource route with sub-resources:
   #   resources :products do
@@ -39,4 +30,3 @@ Indexer2::Application.routes.draw do
   root :to => "home#index"
 
 end
-
