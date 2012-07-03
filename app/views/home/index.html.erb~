@@ -4,5 +4,5 @@
 <%= link_to 'Sign out', '/logout' if user_signed_in? %><br/>
 
 <% if user_signed_in? %>
-<%= link_to 'My Userpage', user_path(current_user) %> 
+<%= link_to 'My Userpage', user_path(current_user) %> <i>(<%= current_user.email %>)</i>
 <% end>

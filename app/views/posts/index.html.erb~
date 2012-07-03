@@ -1,41 +1,22 @@
+<head>
+	<style type = "text/css">
+		#postsTable tbody td {
+
+		padding: 9px 8px 0;
+		padding-top: 20px;
+		padding-right: 9px;
+		padding-bottom: 0px;
+		padding-left: 2px;
+	
+	}
+
+		
+	</style>
+</head>
+
 <h1>Posts</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Location</th>
-    <th>Cost</th>
-    <th>Size</th>
-    <th>Weight</th>
-    <th>Category</th>
-    <th>Owner</th>
-    <th>Posted by</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @posts.each do |post| %>
-  <tr>
-    <td><%= post.name %></td>
-    <td><%= post.description %></td>
-    <td><%= post.location %></td>
-    <td><% if post.cost != nil %>$<%end%><%= post.cost %></td>
-    <td><%= post.size %></td>
-    <td><%= post.weight %><% if post.weight != nil %> kg<%end%></td>
-    <td><%= post.category %></td>
-    <td><%= post.owner %></td>
-    <td><%= link_to (post.user.email, user_path(post.user)) if post.user %><%= "Anonymous" unless post.user %></td>
-    <td><%= link_to 'View', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= (link_to 'Delete', post, confirm: 'Are you sure you wish to delete this post?', method: :delete) if post.user == current_user or post.user_id == nil %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
+<p class ="">
 <%= link_to 'Create new post', new_post_path %> | 
 <% if user_signed_in? %>
 
@@ -44,3 +25,51 @@
 <% else %>
 	<%= link_to 'Log in', '/login'%>
 <% end %>
+</p>
+
+<table id="postsTable">
+<thead>
+
+	<tr>
+    <th scope="col">Image</th>
+    <th scope="col">Name</th>
+    <th scope="col">Description</th>
+    <th scope="col">Location</th>
+    <th scope="col">Cost</th>
+    <th scope="col">Size</th>
+    <th scope="col">Weight</th>
+    <th scope="col">Category</th>
+    <th scope="col">Owner</th>
+    <th scope="col">Posted by</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+	</tr>    
+</thead>
+ 
+
+<% @posts.each do |post| %>
+<tbody>	
+	<tr>
+    <td><img src ="<%= post.url %>" width="30" height="30"></td>
+    <td><b><%= post.name %></b></td>
+    <td><i><%= post.description %></i></td>
+    <td><%= post.location %></td>
+    <td><% if post.cost != nil %>$<%end%><%= post.cost %></td>
+    <td><%= post.size %></td>
+    <td><%= post.weight %><% if post.weight != nil %> kg<%end%></td>
+    <td><%= post.category %></td>
+    <td><%= post.owner %></td>
+    <td><%= link_to post.user.email, user_path(post.user) if post.user %><%= "Anonymous" unless post.user %></td>
+    <td><%= link_to 'View', post %></td>
+    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    <td><%= (link_to 'Delete', post, confirm: 'Are you sure you wish to delete this post?', method: :delete) if post.user == current_user or post.user_id == nil %></td>
+  </tr>
+</tbody>
+  
+<% end %>
+</table>
+
+<br />
+
+
