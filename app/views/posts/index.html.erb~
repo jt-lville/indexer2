@@ -18,6 +18,7 @@
 <h1>Posts</h1>
 
 <p class ="">
+<%= link_to 'Home', '/' %> |
 <%= link_to 'Create new post', new_post_path %> | 
 <% if user_signed_in? %>
 
@@ -33,18 +34,18 @@
 
 	<tr>
     <th scope="col">Image</th>
-    <th scope="col">Name</th>
+    <th scope="col"><%= link_to "Name", {:action => :make_feed_preference, :preference => "name",  :controller => "preferences"}, :method=>:post %></a></th>
     <th scope="col">Description</th>
-    <th scope="col">Location</th>
-    <th scope="col">Cost</th>
-    <th scope="col">Size</th>
-    <th scope="col">Weight</th>
-    <th scope="col">Category</th>
+    <th scope="col"><%= link_to "Location", {:action => :make_feed_preference, :preference => "location",  :controller => "preferences"}, :method=>:post %></th>
+    <th scope="col"><%= link_to "Cost", {:action => :make_feed_preference, :preference => "cost",  :controller => "preferences"}, :method=>:post %></th>
+    <th scope="col"><%= link_to "Size", {:action => :make_feed_preference, :preference => "size",  :controller => "preferences"}, :method=>:post %></th>
+    <th scope="col"><%= link_to "Weight", {:action => :make_feed_preference, :preference => "weight",  :controller => "preferences"}, :method=>:post %></th>
+    <th scope="col"><%= link_to "Category", {:action => :make_feed_preference, :preference => "category",  :controller => "preferences"}, :method=>:post %></th>
     <th scope="col">Owner</th>
     <th scope="col">Posted by</th>
     <th scope="col"></th>
     <th scope="col"></th>
-    <th scope="col"></th>
+    <th scope="col"><%= link_to "Sort id", {:action => :make_feed_preference, :preference => "id",  :controller => "preferences"}, :method=>:post %></th>
 	</tr>    
 </thead>
  
@@ -71,6 +72,7 @@
 <% end %>
 </table>
 
+<br/>
 <div class = "digg_pagination"><%= will_paginate @posts %></div>
 
 <br />

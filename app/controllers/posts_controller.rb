@@ -4,6 +4,28 @@ class PostsController < ApplicationController
   def index
     @posts = Post.paginate(:page => params[:page], :per_page => 10)
     
+    @preference = current_preference
+    @preference.feed_preference = "id" if @preference.feed_preference == nil
+
+    case @preference.feed_preference
+    when "id"
+	@posts = Post.paginate(:page => params[:page], :per_page => 10)
+    when "name"
+	@posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'LOWER(name)')
+    when "location"
+        @posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'location')
+    when "cost"
+        @posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'cost')
+    when "size"
+	@posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'size')
+    when "weight"
+	@posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'weight')
+    when "category"
+	@posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'category')
+    when "owner"
+	@posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'owner')
+    end
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }
@@ -21,6 +43,7 @@ class PostsController < ApplicationController
       format.json { render json: @post }
     end
   end
+
 
   # GET /posts/new
   # GET /posts/new.json

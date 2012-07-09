@@ -1,4 +1,6 @@
 Indexer2::Application.routes.draw do
+  resources :preferences
+
   get "home/index"
 
   resources :posts
@@ -10,6 +12,14 @@ Indexer2::Application.routes.draw do
   end 
 
   match '/welcome' => 'pages#welcome'
+
+  resources :preferences, :except => [:destory, :edit, :create, :new, :index, :show]  do 
+    collection do
+      post "make_feed_preference"
+      post "change_preference"
+    end
+  end
+  
 
    #devise_for :users, :controllers => { :sessions => "users/sessions" }
 
