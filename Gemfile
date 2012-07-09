@@ -8,7 +8,7 @@ gem 'rails', '3.2.1'
 gem 'sqlite3'
 
 gem 'activerecord-sqlserver-adapter'
-gem 'ruby-odbc'
+#gem 'ruby-odbc'
 gem 'will_paginate', '~> 3.0.0'
 
 gem 'devise'

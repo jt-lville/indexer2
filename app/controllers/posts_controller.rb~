@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
     case @preference.feed_preference
     when "id"
-	@posts = Post.paginate(:page => params[:page], :per_page => 10)
+	@posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'created_at')
     when "name"
 	@posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'LOWER(name)')
     when "location"
@@ -44,14 +44,6 @@ class PostsController < ApplicationController
     end
   end
 
-	
-def make_feed_preference
-	@user = current_user
-	@user.feed_preference = params[:preference]
-	@user.save
-	redirect_to '/posts'
-end
-  
 
   # GET /posts/new
   # GET /posts/new.json

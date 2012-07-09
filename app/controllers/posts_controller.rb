@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
     case @preference.feed_preference
     when "id"
-	@posts = Post.paginate(:page => params[:page], :per_page => 10)
+	@posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'created_at DESC')
     when "name"
 	@posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'LOWER(name)')
     when "location"
