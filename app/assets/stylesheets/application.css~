@@ -1,4 +1,17 @@
-<style type = 'text/css'>
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+*/
+
 .digg_pagination {
   background: white;
   cursor: default;
@@ -46,20 +59,3 @@
   *:first-child + html .digg_pagination {
     overflow: hidden; }
 	
-</style>
-
-<h1><%= @userProfile.email %></h1><br/>
-<h2>Posts </h2>
-<% @posts = @userProfile.posts.paginate(:page => params[:page], :per_page => 10) %>
-<% @posts.each do |p| %>
-
-	Name: <%= p.name %><br/>
-	<%= "Description: " + p.description if p.description %><br/>
-	<br/>
-	<%= link_to "Link", post_path(p) %> | 
-	<%= (link_to 'Delete', p, confirm: 'Are you sure you wish to delete this post?', method: :delete) if p.user == current_user or p.user_id == nil %><br/>
-	<hr>
-
-<% end %>
-<div class = "digg_pagination"><%= will_paginate @posts %></div>
-<%= link_to 'Back', posts_path %>

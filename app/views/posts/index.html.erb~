@@ -10,6 +10,7 @@
 	
 	}
 
+
 		
 	</style>
 </head>
@@ -25,7 +26,7 @@
 <% else %>
 	<%= link_to 'Log in', '/login'%>
 <% end %>
-</p>
+</p><br/>
 
 <table id="postsTable">
 <thead>
@@ -69,6 +70,8 @@
   
 <% end %>
 </table>
+
+<div class = "digg_pagination"><%= will_paginate @posts %></div>
 
 <br />
 

@@ -1,6 +1,11 @@
+<style type = 'text/css'>
+
+</style>
+
 <h1><%= @userProfile.email %></h1><br/>
 <h2>Posts </h2>
-<% @userProfile.posts.each do |p| %>
+<% @posts = @userProfile.posts.paginate(:page => params[:page], :per_page => 10) %>
+<% @posts.each do |p| %>
 
 	Name: <%= p.name %><br/>
 	<%= "Description: " + p.description if p.description %><br/>
@@ -10,4 +15,5 @@
 	<hr>
 
 <% end %>
+<div class = "digg_pagination"><%= will_paginate @posts %></div>
 <%= link_to 'Back', posts_path %>
