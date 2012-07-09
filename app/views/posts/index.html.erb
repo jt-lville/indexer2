@@ -1,16 +1,55 @@
 <head>
 	<style type = "text/css">
+
 		#postsTable tbody td {
 
+		text-align: left;
 		padding: 9px 8px 0;
-		padding-top: 20px;
-		padding-right: 9px;
-		padding-bottom: 0px;
-		padding-left: 2px;
-	
+		padding-top: 5px;
+		padding-right: 7px;
+		padding-bottom: 4px;
+		padding-left: 1px;	
+
 	}
 
 
+	#postsTable {
+
+border-top: 4px solid #333333;
+border-top-width: 3px;
+border-top-style: solid;
+border-top-color: #2e6ab1;
+border-bottom: 1px solid #333333;
+border-bottom-width: 2px;
+border-bottom-style: solid;
+border-bottom-color: #2e6ab1;
+
+		border-collapse:collapse;
+		width:100%;
+
+text-align: left;
+
+margin-top: 10px;
+margin-bottom: 20px;
+
+background-image: initial;
+background-repeat-x: initial;
+background-repeat-y: initial;
+background-attachment: initial;
+background-position-x: initial;
+background-position-y: initial;
+background-origin: initial;
+background-clip: initial;
+
+padding: 8px;
+padding-top: 8px;
+padding-right: 8px;
+padding-bottom: 8px;
+padding-left: 8px;
+
+
+}
+	
 		
 	</style>
 </head>
@@ -27,13 +66,13 @@
 <% else %>
 	<%= link_to 'Log in', '/login'%>
 <% end %>
-</p><br/>
+</p>
 
-<table id="postsTable">
+<table id="postsTable" >
 <thead>
 
 	<tr>
-    <th scope="col">Image</th>
+    <th scope="col"><%= link_to "Image", {:action => :make_feed_preference, :preference => "url",  :controller => "preferences"}, :method=>:post %></th>
     <th scope="col"><%= link_to "Name", {:action => :make_feed_preference, :preference => "name",  :controller => "preferences"}, :method=>:post %></a></th>
     <th scope="col">Description</th>
     <th scope="col"><%= link_to "Location", {:action => :make_feed_preference, :preference => "location",  :controller => "preferences"}, :method=>:post %></th>
@@ -54,15 +93,15 @@
 <tbody>	
 	<tr>
     <td><img src ="<%= post.url %>" width="30" height="30"></td>
-    <td><b><%= post.name %></b></td>
-    <td><i><%= post.description %></i></td>
-    <td><%= post.location %></td>
+    <td><b><%= truncate(post.name, :length => 20) %></b></td>
+    <td><i><%= truncate(post.description, :length => 20) %></i></td>
+    <td><%= truncate(post.location,:length => 20) %></td>
     <td><% if post.cost != nil %>$<%end%><%= post.cost %></td>
     <td><%= post.size %></td>
     <td><%= post.weight %><% if post.weight != nil %> kg<%end%></td>
     <td><%= post.category %></td>
     <td><%= post.owner %></td>
-    <td><%= link_to post.user.email, user_path(post.user) if post.user %><%= "Anonymous" unless post.user %></td>
+    <td><%= link_to truncate(post.user.email, :length=>10), user_path(post.user) if post.user %><%= "Anonymous" unless post.user %></td>
     <td><%= link_to 'View', post %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
     <td><%= (link_to 'Delete', post, confirm: 'Are you sure you wish to delete this post?', method: :delete) if post.user == current_user or post.user_id == nil %></td>
@@ -72,7 +111,7 @@
 <% end %>
 </table>
 
-<br/>
+
 <div class = "digg_pagination"><%= will_paginate @posts %></div>
 
 <br />
