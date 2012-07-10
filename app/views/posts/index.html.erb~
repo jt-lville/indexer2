@@ -68,6 +68,10 @@ padding-left: 8px;
 <% end %>
 </p>
 
+<p>
+<b>Sorting by <%= @preference.feed_preference %>:</b>
+</p>
+
 <table id="postsTable" >
 <thead>
 
@@ -83,7 +87,7 @@ padding-left: 8px;
         <th scope="col"><%= link_to "Purchased", {:action => :make_feed_preference, :preference => "date_purchased",  :controller => "preferences"}, :method=>:post %></th>
 
     <th scope="col"><%= link_to "Category", {:action => :make_feed_preference, :preference => "category",  :controller => "preferences"}, :method=>:post %></th>
-    <th scope="col"><%= link_to "PN", {:action => :make_feed_preference, :preference => "purchase_number",  :controller => "preferences"}, :method=>:post %></th>
+    <th scope="col"><%= link_to "P-Num", {:action => :make_feed_preference, :preference => "purchase_number",  :controller => "preferences"}, :method=>:post %></th>
     <th scope="col">Posted by</th>
     <th scope="col"></th>
     <th scope="col"></th>
@@ -116,6 +120,8 @@ padding-left: 8px;
 
 
 <div class = "digg_pagination"><%= will_paginate @posts %></div>
+
+
 
 <br />
 
