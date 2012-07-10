@@ -10,8 +10,8 @@
 	Name: <%= p.name %><br/>
 	<%= "Description: " + p.description if p.description %><br/>
 	<br/>
-	<%= link_to "Link", post_path(p) %> | 
-	<%= (link_to 'Delete', p, confirm: 'Are you sure you wish to delete this post?', method: :delete) if p.user == current_user or p.user_id == nil %><br/>
+	<%= link_to "Link", post_path(p) %><% if p.user == current_user or p.user_id == nil %> | 
+		<%= (link_to 'Delete', p, confirm: 'Are you sure you wish to delete this post?', method: :delete)%><%end%><br/>
 	<hr>
 
 <% end %>
