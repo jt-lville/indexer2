@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
 
-	attr_accessible :name, :description, :location, :cost, :size, :url, :weight, :category, :owner
+	attr_accessible :name, :description, :location, :cost, :size, :url, :weight, :category, :owner, :manufacturer, :date_purchased
 	validates :name, :presence => true
 	validates :category, :presence => true
 	validates :location, :presence => true

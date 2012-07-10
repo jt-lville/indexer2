@@ -4,7 +4,7 @@ Indexer2::Application.routes.draw do
   get "home/index"
 
   resources :posts
-  #resources :users
+  resources :users, :except => [:create]
 
   devise_for :users, :controllers => {:registrations => 'registrations', :invitations => 'invitations'}, :except => [:show] do
     get "/signup" => "devise/registrations#new", :as => 'user_signup'
