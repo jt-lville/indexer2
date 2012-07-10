@@ -77,14 +77,17 @@ padding-left: 8px;
     <th scope="col">Description</th>
     <th scope="col"><%= link_to "Location", {:action => :make_feed_preference, :preference => "location",  :controller => "preferences"}, :method=>:post %></th>
     <th scope="col"><%= link_to "Cost", {:action => :make_feed_preference, :preference => "cost",  :controller => "preferences"}, :method=>:post %></th>
-    <th scope="col"><%= link_to "Size", {:action => :make_feed_preference, :preference => "size",  :controller => "preferences"}, :method=>:post %></th>
-    <th scope="col"><%= link_to "Weight", {:action => :make_feed_preference, :preference => "weight",  :controller => "preferences"}, :method=>:post %></th>
+
+    <th scope="col"><%= link_to "Manufacturer", {:action => :make_feed_preference, :preference => "manufacturer",  :controller => "preferences"}, :method=>:post %></th>
+
+        <th scope="col"><%= link_to "Date Purchased", {:action => :make_feed_preference, :preference => "date_purchased",  :controller => "preferences"}, :method=>:post %></th>
+
     <th scope="col"><%= link_to "Category", {:action => :make_feed_preference, :preference => "category",  :controller => "preferences"}, :method=>:post %></th>
     <th scope="col"><%= link_to "Owner", {:action => :make_feed_preference, :preference => "owner",  :controller => "preferences"}, :method=>:post %></th>
     <th scope="col">Posted by</th>
     <th scope="col"></th>
     <th scope="col"></th>
-    <th scope="col"><%= link_to "Sort by time", {:action => :make_feed_preference, :preference => "id",  :controller => "preferences"}, :method=>:post %></th>
+    <th scope="col"><%= link_to "Time", {:action => :make_feed_preference, :preference => "id",  :controller => "preferences"}, :method=>:post %></th>
 	</tr>    
 </thead>
  
@@ -97,8 +100,8 @@ padding-left: 8px;
     <td><i><%= truncate(post.description, :length => 20) %></i></td>
     <td><%= truncate(post.location,:length => 20) %></td>
     <td><% if post.cost != nil %>$<%end%><%= post.cost %></td>
-    <td><%= post.size %></td>
-    <td><%= post.weight %><% if post.weight != nil %> kg<%end%></td>
+    <td><%= post.manufacturer %></td>
+    <td><%= post.date_purchased %></td>
     <td><%= post.category %></td>
     <td><%= post.owner %></td>
     <td><%= link_to truncate(post.user.email, :length=>10), user_path(post.user) if post.user %><%= "Anonymous" unless post.user %></td>

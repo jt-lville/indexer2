@@ -52,11 +52,10 @@
   <%= @post.owner %>
 </p>
 
-<% if @post.user != nil %>
+<% if @user != nil %>
   <p>
   <b>User:</b>
-  <% u = @post.user %>
-  <%= link_to u.email, user_path(u) %>
+  <%= link_to @user.email, user_path(@user) %>
   </p>
 <% end %>
 

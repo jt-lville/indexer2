@@ -24,6 +24,10 @@ class PostsController < ApplicationController
 	@posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'category')
     when "owner"
 	@posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'owner')
+    when "manufacturer"
+	@posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'manufacturer')
+    when "date_purchased"
+	@posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'date_purchased')
     end
 
     respond_to do |format|
