@@ -28,6 +28,8 @@ class PostsController < ApplicationController
 	@posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'manufacturer')
     when "date_purchased"
 	@posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'date_purchased')
+    when "purchase_number"
+        @posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'purchase_number')
     end
 
     respond_to do |format|

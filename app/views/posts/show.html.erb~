@@ -45,6 +45,14 @@
 <p>
   <b>Category:</b>
   <%= @post.category %>
+  </p>
+
+  <p>
+  <b>Manufacturer:</b>
+  <%= @post.manufacturer %>
+  </p>
+    <b>Date Purchased:</b>
+  <%= @post.date_purchased %>
 </p>
 
 <p>

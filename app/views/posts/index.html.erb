@@ -83,7 +83,7 @@ padding-left: 8px;
         <th scope="col"><%= link_to "Purchased", {:action => :make_feed_preference, :preference => "date_purchased",  :controller => "preferences"}, :method=>:post %></th>
 
     <th scope="col"><%= link_to "Category", {:action => :make_feed_preference, :preference => "category",  :controller => "preferences"}, :method=>:post %></th>
-    <th scope="col"><%= link_to "Owner", {:action => :make_feed_preference, :preference => "owner",  :controller => "preferences"}, :method=>:post %></th>
+    <th scope="col"><%= link_to "P-Num", {:action => :make_feed_preference, :preference => "purchase_number",  :controller => "preferences"}, :method=>:post %></th>
     <th scope="col">Posted by</th>
     <th scope="col"></th>
     <th scope="col"></th>
@@ -103,7 +103,7 @@ padding-left: 8px;
     <td><%= post.manufacturer %></td>
     <td><%= post.date_purchased %></td>
     <td><%= post.category %></td>
-    <td><%= post.owner %></td>
+    <td><%= post.purchase_number %></td>
     <td><%= link_to truncate(post.user.email, :length=>10), user_path(post.user) if post.user %><%= "Anonymous" unless post.user %></td>
     <td><%= link_to 'View', post %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
