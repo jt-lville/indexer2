@@ -1,8 +1,9 @@
 <h1>Welcome to Radium Indexer</h1>
 <%= link_to "Posts", posts_path %> | 
-<%= link_to 'Log in', '/login' unless user_signed_in? %>
+<%= link_to 'Log in', '/login' unless user_signed_in? %> |
+<%= link_to 'Sign up', '/signup' unless user_signed_in? %>
 <%= link_to 'Sign out', '/logout' if user_signed_in? %><br/>
 
 <% if user_signed_in? %>
 <%= link_to 'My Userpage', user_path(current_user) %> <i>(<%= current_user.email %>)</i>
-<% end>
+<% end%>

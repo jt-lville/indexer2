@@ -7,6 +7,7 @@ Indexer2::Application.routes.draw do
   resources :users
 
   devise_for :users, :controllers => {:registrations => 'registrations', :invitations => 'invitations'}, :except => [:show] do
+    get "/signup" => "devise/registrations#new", :as => 'user_signup'
     get '/logout' => 'devise/sessions#destroy', :as => 'user_logout'
     get '/login' => "devise/sessions#new", :as => 'user_login'
   end 
