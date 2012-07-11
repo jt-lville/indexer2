@@ -68,9 +68,9 @@ padding-left: 8px;
 <% end %>
 </p>
 
-<%= form_tag search_books_path, :method => :get do %>
+<%= form_tag search_posts_path, :method => :get do %>
 <p>
-  <%= text_field_tag :query, params[:query] %> <%= submit_tag "Search!" %>
+  <%= text_field_tag :query, params[:query] %> <%= submit_tag "Search" %>
 </p>
 <% end %>
 

@@ -57,6 +57,7 @@ class PostsController < ApplicationController
 # GET /books/search
 # GET /books/search.xml
 def search
+
   @posts = Post.search do
     keywords params[:query]
   end.results
