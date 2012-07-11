@@ -32,7 +32,7 @@ class PostsController < ApplicationController
         @posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'purchase_number')
     when "posted_by"
 	@posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'created_at DESC')
-	#@posts = Post.find(:all).sort!{|p1,p2|p1.user.email <=> p2.user.email}.paginate(:page => params[:page], :per_page => 10)
+	#@posts = Post.find(:all).sort!{|p1,p2| p1.user.email <=> p2.user.email}.paginate(:page => params[:page], :per_page => 10)
     end
 
     respond_to do |format|
