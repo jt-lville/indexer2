@@ -3,7 +3,12 @@ Indexer2::Application.routes.draw do
 
   get "home/index"
 
-  resources :posts
+  resources :posts do
+	  collection do
+		  get :search
+	  end
+  end
+
   resources :users, :except => [:create]
 
   devise_for :users, :controllers => {:registrations => 'registrations', :invitations => 'invitations'}, :except => [:show] do
