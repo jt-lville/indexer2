@@ -7,4 +7,16 @@ class Post < ActiveRecord::Base
 
 	belongs_to :user
 
+  searchable do
+    text :description, :name, :location, :size, :url, :category, :owner, :manufacturer, :date_purchased, :purchase_number
+
+    integer :size, :cost
+
+   # string  :sort_title do
+   #   title.downcase.gsub(/^(an?|the)/, '')
+   # end
+
+  end
+	
+
 end

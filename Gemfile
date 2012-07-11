@@ -9,6 +9,9 @@ group :development, :test do
   gem 'sqlite3'
 end
 
+gem 'sunspot_rails'
+gem 'sunspot_solr' # optional pre-packaged Solr distribution
+
 gem 'activerecord-sqlserver-adapter'
 #gem 'ruby-odbc'
 gem 'will_paginate', '~> 3.0.0'

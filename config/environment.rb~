@@ -4,3 +4,7 @@ require File.expand_path('../application', __FILE__)
 # Initialize the rails application
 Indexer2::Application.initialize!
 
+config.gem(
+  'thinking-sphinx', :version => '1.4.10'
+)
+

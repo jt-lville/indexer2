@@ -6,8 +6,11 @@ gem 'rails', '3.2.1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development, :test do
-	gem 'sqlite3'
+  gem 'sqlite3'
 end
+
+gem 'sunspot_rails'
+#gem 'sunspot_solr' # optional pre-packaged Solr distribution
 
 gem 'activerecord-sqlserver-adapter'
 #gem 'ruby-odbc'
